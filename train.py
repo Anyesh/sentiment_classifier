@@ -10,15 +10,15 @@ def train(model, iterator, optimizer, criterion):
 
     model.train()
 
-    for batch in Bar(iterator):
+    for idx, (text, label) in enumerate(Bar(iterator)):
 
         optimizer.zero_grad()
 
-        predictions = model(batch.text).squeeze(1)
+        predictions = model(text).squeeze(1)
 
-        loss = criterion(predictions, batch.label)
+        loss = criterion(predictions, label)
 
-        acc = binary_accuracy(predictions, batch.label)
+        acc = binary_accuracy(predictions, label)
 
         loss.backward()
 
