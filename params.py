@@ -1,0 +1,13 @@
+HIDDEN_DIM = 256
+OUTPUT_DIM = 1
+N_LAYERS = 2
+BIDIRECTIONAL = True
+DROPOUT = 0.25
+BATCH_SIZE = 128
+validation_split = .2
+random_seed = 42
+shuffle_dataset = True
+N_EPOCHS = 5
+BATCH_SIZE = 128
+SEED = 0
+DATA_PATH = "/spell/sentiment_classifier"
