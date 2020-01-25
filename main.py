@@ -9,10 +9,12 @@ from model import SentimentAnalysis
 from preprocessing import train_iterator, valid_iterator
 import wandb
 from params import *
+from transformers import BertModel
+
 
 wandb.init()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
+bert = BertModel.from_pretrained('bert-base-uncased')
 model = SentimentAnalysis(bert,
                           HIDDEN_DIM,
                           OUTPUT_DIM,
