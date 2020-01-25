@@ -5,6 +5,7 @@ import time
 from utils import epoch_time
 from train import train
 from evaluate import evaluate
+from model import SentimentAnalysis
 from preprocessing import train_iterator, valid_iterator
 import wandb
 from params import *
