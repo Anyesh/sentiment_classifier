@@ -64,11 +64,11 @@ for epoch in range(N_EPOCHS):
     print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')
     print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}%')
     wandb.log({
-        "Epoch": epoch + 1: 02,
+        "Epoch": epoch + 1,
         "Epoch Time": "f{epoch_mins}m {epoch_secs}s",
-        "Train Loss": train_loss: .3f,
-        "Train Accuracy": train_acc * 100: .2f,
-        "Validation Loss": valid_loss: .3f,
-        "Validation Accuracy": valid_acc * 100: .2f,
+        "Train Loss": train_loss,
+        "Train Accuracy": train_acc * 100,
+        "Validation Loss": valid_loss,
+        "Validation Accuracy": valid_acc * 100,
 
     })
