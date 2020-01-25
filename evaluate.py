@@ -1,5 +1,6 @@
 import torch
 from utils import binary_accuracy
+from barbar import Bar
 
 
 def evaluate(model, iterator, criterion):
@@ -11,7 +12,7 @@ def evaluate(model, iterator, criterion):
 
     with torch.no_grad():
 
-        for batch in iterator:
+        for idx, (text, label) in enumerate(Bar(iterator)):
 
             predictions = model(batch.text).squeeze(1)
 
