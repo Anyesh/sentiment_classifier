@@ -6,8 +6,10 @@ from utils import epoch_time
 from train import train
 from evaluate import evaluate
 from preprocessing import train_iterator, valid_iterator
+import wandb
 from params import *
 
+wandb.init()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = SentimentAnalysis(bert,
@@ -41,7 +43,7 @@ for name, param in model.named_parameters():
 
 
 best_valid_loss = float('inf')
-
+wandb.watch(model)
 for epoch in range(N_EPOCHS):
 
     start_time = time.time()
@@ -60,3 +62,12 @@ for epoch in range(N_EPOCHS):
     print(f'Epoch: {epoch+1:02} | Epoch Time: {epoch_mins}m {epoch_secs}s')
     print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')
     print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}%')
+    wandb.log({
+        "Epoch": epoch + 1: 02,
+        "Epoch Time": "f{epoch_mins}m {epoch_secs}s",
+        "Train Loss": train_loss: .3f,
+        "Train Accuracy": train_acc * 100: .2f,
+        "Validation Loss": valid_loss: .3f,
+        "Validation Accuracy": valid_acc * 100: .2f,
+
+    })

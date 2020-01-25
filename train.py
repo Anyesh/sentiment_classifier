@@ -4,8 +4,6 @@ from utils import binary_accuracy
 
 
 def train(model, iterator, optimizer, criterion):
-    wandb.init()
-    wandb.watch(model)
 
     epoch_loss = 0
     epoch_acc = 0
