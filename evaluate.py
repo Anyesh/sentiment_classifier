@@ -14,11 +14,11 @@ def evaluate(model, iterator, criterion):
 
         for idx, (text, label) in enumerate(Bar(iterator)):
 
-            predictions = model(batch.text).squeeze(1)
+            predictions = model(text).squeeze(1)
 
-            loss = criterion(predictions, batch.label)
+            loss = criterion(predictions, label)
 
-            acc = binary_accuracy(predictions, batch.label)
+            acc = binary_accuracy(predictions, label)
 
             epoch_loss += loss.item()
             epoch_acc += acc.item()
