@@ -10,8 +10,7 @@ def train(model, iterator, optimizer, criterion):
 
     model.train()
 
-    for idx, (text, label) in enumerate(Bar(iterator)):
-
+    for text, label in Bar(iterator):
         optimizer.zero_grad()
 
         predictions = model(text).squeeze(1)

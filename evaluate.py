@@ -12,8 +12,7 @@ def evaluate(model, iterator, criterion):
 
     with torch.no_grad():
 
-        for idx, (text, label) in enumerate(Bar(iterator)):
-
+        for text, label in Bar(iterator):
             predictions = model(text).squeeze(1)
 
             loss = criterion(predictions, label)

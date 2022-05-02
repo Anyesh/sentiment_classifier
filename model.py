@@ -49,10 +49,6 @@ class SentimentAnalysis(nn.Module):
         else:
             hidden = self.dropout(hidden[-1, :, :])
 
-        # hidden = [batch size, hid dim]
-
-        output = self.out(hidden)
-
         # output = [batch size, out dim]
 
-        return output
+        return self.out(hidden)
